@@ -1,0 +1,72 @@
+<label for "">Número de noches:  </label> 
+<input type="text" class="numNoches" /> 
+<button>Calcular coste</button>
+<select class="lugares">
+  <option>Oviedo</option>
+  <option>Tokyo</option>
+  <option>Madrid</option>
+  <option>Barcelona</option>  
+</select> <br/><br/><br/>
+<label for="cHotel">Coste hotel:  </label> 
+<output class="costHotel" ></output> <br/>
+<label for "">Coste viaje:  </label> 
+<output  class="costViaje" ></output> <br/>
+<label for "">Coste alquiler coche:  </label> 
+<output class="costCoche" ></output> <br/>
+<label for "">Coste total:  </label> 
+<output id="pp"></output>
+
+<script>
+function calculateCost() {
+
+  	const numNights = document.querySelector(".numNoches").value;
+    const destino = document.querySelector(".lugares").value;
+
+	const costHotel = calculateHotelCost(numNights);
+  	const costAirplane = calculateAirplaneCost(destino, numNights);
+const costCoche = calculateRentingCarCost(numNights)
+
+  document.querySelector(".costHotel").value = costHotel;
+  document.querySelector(".costViaje").value = costAirplane;
+  document.querySelector(".costCoche").value = costCoche;
+
+  console.log(costHotel, costAirplane, costCoche,   document.querySelector("#pp"))
+  document.querySelector("#pp").value = costHotel + costAirplane + costCoche;
+
+}
+
+
+
+function calculateHotelCost(numNights){
+return numNights * 140
+}
+
+function calculateAirplaneCost(lugar, numNights) {
+
+  if (lugar === "Oviedo") {
+    airplaneCost = 15 
+  } else if (lugar === "Tokyo") {
+    airplaneCost =  700
+  } else if (lugar === "Madrid") {
+    airplaneCost = 90
+  } else if (lugar === "Barcelona") {
+    airplaneCost = 90
+  }
+   airplaneCost = numNights>3 ? airplaneCost * 0.9 : airplaneCost
+   return airplaneCost
+   
+}
+
+ function calculateRentingCarCost(numNights) {
+  let price = 40 * numNights
+  if (numNights >= 3 && numNights <= 7) {
+    price = price - 20
+  } else if (numNights >7) {
+    price = price - 50
+  }
+  return price
+ }
+  
+document.querySelector("button").addEventListener("click", calculateCost);
+
+</script>
