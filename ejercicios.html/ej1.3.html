@@ -1,0 +1,29 @@
+<label for "">Nombre y apellidos</label> <br/>
+<input type="text" class="input"> <br/><br/>
+<label for "">Material de la caja</label> <br/>
+<select>
+  <option>Plastico</option>
+  <option>Madera</option>
+  <option>Cristal</option>
+</select> <br/>
+<label>Dimensiones</label> <br/>
+<input type="radio" name="rBtn" class="radiusBtn" value="love1" /><label>Diminuta</label><br/>
+<input type="radio" name="rBtn" class="radiusBtn" value="love2" /><label>Mediana</label><br>
+<input type="radio" name="rBtn" class="radiusBtn" value="love3" /><label>Grande</label><br>
+<label for "">Comentarios</label> <br/>
+<textarea></textarea>
+<button>Solicitar</button> <br/>
+<output></output>
+<script>
+  const calculate = () => {
+    const nombre = document.querySelector("input").value;
+    const material = document.querySelector("select").value;
+    const dimension = document.querySelector("[name=rBtn]:checked").value;
+    const comentario = document.querySelector("textarea").value;
+    const respuesta = nombre + "ha pedido una caja de " + material + "con unas dimensiones" + dimension + comentario;
+    
+    document.querySelector("output").value = respuesta
+  };
+
+  document.querySelector("button").addEventListener("click", calculate);
+</script>

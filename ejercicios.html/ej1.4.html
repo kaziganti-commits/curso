@@ -1,0 +1,19 @@
+<label for "">Adivina el número</label> <br/>
+<input type="text" class="input" /> <br />
+<button>Evaluar</button> <br />
+<output></output>
+
+<script >
+  function acierto() {
+  const aleatorio = 7;
+  const conc = +document.querySelector("input").value;
+  const output = document.querySelector('output');
+  if (conc === aleatorio) {
+  output.value = "Has acertado";
+  } else {
+    output.value = "Has fallado";
+  }
+  alert(123)
+}
+document.querySelector("button").addEventListener("click", acierto);
+</script>

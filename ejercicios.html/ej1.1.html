@@ -1,0 +1,28 @@
+<label for  ""> Euros </label>
+<input type="text" class="input" />
+<button type="button">Euro a dolar</button>
+<output> </output>
+<script>
+  function calculadora() {
+    const euro = document.querySelector("input").value;
+    const dolar = euro * 2;
+    alert(dolar);
+    document.querySelector("output").value = dolar
+  }
+  document.querySelector("button").addEventListener("click", calculadora);
+</script>
+
+<!-- prueba ejercicio similar -->
+
+<label for""> Coches </label>
+<input type="text" class="input2" />
+<button type="button" class="button2">Cuantas ruedas</button>
+<output type="text" class="output2"> </output>
+<script>
+  function cantidadRuedas() {
+  const coches = document.querySelector(".input2").value;  
+  const ruedas = coches * 4;
+  document.querySelector(".output2").value = ruedas
+  }
+  document.querySelector(".button2").addEventListener("click", cantidadRuedas);
+</script>

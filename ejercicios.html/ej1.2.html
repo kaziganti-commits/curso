@@ -1,0 +1,12 @@
+<label for  ""> Grados centigrados </label>
+<input type="text" class="input" />
+<button type="button">Pasar a farenheit</button>
+<output> </output>
+<script>
+  function calculadora() {
+    const centigrados = document.querySelector("input").value;
+    const farenheit = centigrados * 9/5 + 2;
+    document.querySelector("output").value = farenheit
+  }
+  document.querySelector("button").addEventListener("click", calculadora);
+</script>
