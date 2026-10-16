@@ -1,0 +1,63 @@
+<button>Pedir pizza</button><br />
+<select class="Pizza">
+  <option value="6">Margarita</option>
+  <option value="7">Vegetal</optionvalue>
+  <option value="8">Carbonara</option>
+  <option value="9">Barbacoa</optionvalue>
+</select>
+<label>Tamaño</label> <br />
+<input type="radio" name="rBtn" class="radiusBtn" value="tamano1" /><label
+  >Pequeña</label
+><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="tamano2" /><label
+  >Mediana</label
+><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="tamano3" /><label
+  >Grande</label
+><br />
+<label>Codigo promocional</label><br />
+<input type="text" class="input" />
+<label>Entraga a domicilio</label>
+<input type="checkbox" class="domicilio" /><br />
+<output></output>
+
+<script>
+  function tipoPizza() {
+    if (Pizza === Margarita) {
+      precioPizza = 6;
+    } else if (Pizza === Vegetal) {
+      precioPizza = 7;
+    } else if (Pizza === Carbonara) {
+      precioPizza = 8;
+    } else if (Pizza === Barbacoa) {
+      precioPizza = 9;
+    }
+    return precioPizza;
+  }
+
+  function tamanoPizza() {
+    if ((tamano = tamano1)) {
+      precioPizzaT = precioPizza - 2;
+    } else if ((tamano = tamano2)) {
+      precioPizzaT = precioPizza;
+    } else if ((tamano = tamano3)) {
+      precioPizzaT = precioPizza + 2;
+    }
+    return precioPizzaT;
+  }
+
+  function precioFinal() {
+    const tamano = document.querySelector("[name=rBtn]:checked").value;
+    let precioPizzaT = 0;
+
+    const codigoPromo = document.querySelector("input").value;
+    if (codigoPromo === "esfamiao") {
+      precioPizzaTP = precioPizzaT * 0.6;
+    } else if (codigoPromo || "esfamiao") {
+      precioPizzaTP = precioPizzaT;
+    }
+    return precioPizzaTP;
+    alert("seguimos");
+  }
+  document.querySelector("button").addEventListener("click", precioFinal);
+</script>
