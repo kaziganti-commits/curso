@@ -1,0 +1,63 @@
+<label>Elija su sala</label><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="8" /><label
+  >Sala normal</label
+><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="10" /><label
+  >Sala 3D</label
+><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="14" /><label
+  >Sala VIP</label
+><br />
+<label>Número de entradas</label><br />
+<input type="number" class="entradas" /><br />
+<label>Día de la semana: </label>
+<select class="dia">
+  <option>Lunes</option>
+  <option>Martes</option>
+  <option>Miércoles</option>
+  <option>Jueves</option>
+  <option>Viernes</option>
+  <option>Sábado</option>
+  <option>Domingo</option></select
+><br />
+<label>Extras</label><br />
+<input type="checkbox" value="4.5" class="precioExtra" /><label>
+  Palomitas</label
+><br />
+<input type="checkbox" value="3" class="precioExtra" /><label> Refresco</label
+><br />
+<input type="checkbox" value="5" class="precioExtra" /><label> Nachos</label
+><br /><br />
+<button>Realizar pedido</button> <br />
+<label>Precio total</label> <br />
+<output></output>
+
+<script>
+  function precioTotal() {
+    let sala = +document.querySelector("[name=rBtn]:checked").value;
+    const entradas = document.querySelector(".entradas").value;
+    const diaSemana = document.querySelector(".dia").value;
+    const precioTotalEntradas = sala * entradas;
+    const valorSumado = Array.from(
+      document.querySelectorAll(".precioExtra:checked")
+    ).reduce((acc, v) => acc + +v.value, 0);
+    const precioFinal = valorSumado + precioTotalEntradas;
+
+    if (
+      diaSemana != "Miércoles" ||
+      diaSemana != "Sábado" ||
+      diaSemana != "Domingo"
+    ) {
+      sala = sala;
+    } else if (diaSemana === "Miércoles") {
+      sala = sala * 0.75;
+    } else {
+      sala = sala + 1;
+    }
+    if (entradas >= 5) {
+      sala = sala * 0.9;
+    }
+    document.querySelector("output").value = precioFinal;
+  }
+  document.querySelector("button").addEventListener("click", precioTotal);
+</script>

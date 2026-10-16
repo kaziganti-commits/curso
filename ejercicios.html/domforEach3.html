@@ -1,0 +1,37 @@
+<style>
+  .box{
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 25px;
+    display: table-cell;
+  }
+</style>
+
+<div class="box">
+  <input type="radio" name="option1" value="0">El cliente me suministra el diseño</input><br />
+  <input type="radio" name="option1" value="150">Yo me encargo del diseño</input>
+</div> <br />
+<div class="box">
+  <input type="radio" name="option2" value="0">La página no incorpora un carrito de la compra</input><br />
+  <input type="radio" name="option2" value="200">La página incorpora un carrito de la compra</input>
+</div> <br />
+<div class="box">
+  <input type="radio" name="option3" value="0">La página no permite suscripción</input><br />
+  <input type="radio" name="option3" value="100">La página permite suscripción</input>
+</div>
+<output>Precio total: </output>
+
+<script>
+
+  document.querySelectorAll("input").forEach( input => {
+    input.addEventListener("click", () => {
+        let precio = 100
+    document.querySelectorAll("input[type=radio]:checked").forEach(input => {
+        precio += +input.value
+    }
+    ) 
+    document.querySelector("output").value = precio;
+
+  }
+) })
+</script>

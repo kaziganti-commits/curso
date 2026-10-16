@@ -1,0 +1,14 @@
+<label>Escoge un color</label>
+<select id="color">
+  <option value="Green">Verde</option>
+  <option value="Red">Rojo</option>
+  <option value="Blue">Azul</option>
+</select>
+
+<script>
+  function cambiarColor() {
+    const color = document.querySelector("#color").value;
+    document.querySelector("body").style.backgroundColor = color;
+  }
+  document.querySelector("#color").addEventListener("click", cambiarColor);
+</script>

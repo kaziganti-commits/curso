@@ -1,0 +1,24 @@
+<label for "">Introduce el número del DNI</label> <br/>
+<input type="text" class="input" /> <br />
+<button>Calcular</button> <br />
+<label for "">La letra es </label>
+<output></output>
+
+<script>
+   
+  function input() {
+      console.log("va bien")
+    const calculo = document.querySelector("input").value;
+          console.log(calculo)
+  if (calculo.length === 8 &&  isNaN(calculo) == false) {
+    console.log("Va bien")
+  } else {
+    console.log("error")
+  }
+  const calcular = calculo % 23
+  const letra = "TRWAGMYFPDXBNJZSQVHLCKE"[calcular]
+  console.log("OK")
+  document.querySelector("output").value = letra
+}
+document.querySelector("button").addEventListener("click", input);
+</script>

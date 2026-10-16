@@ -1,0 +1,17 @@
+<input type="number" id="num1" class="num"></input>
+<input type="number" id="num2" class="num"></input>
+<input type="number" id="num3" class="num"></input>
+<button type="button">Calcular</button>
+<output></output>
+
+<script>
+let suma=0;
+function resultado(){
+  document.querySelectorAll(".num").forEach(input => {
+  suma = suma + +input.value
+  document.querySelector("output").value = suma
+  } )
+  alert(suma)
+}
+  document.querySelector("button").addEventListener("click", resultado)
+</script>

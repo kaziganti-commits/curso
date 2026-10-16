@@ -1,0 +1,51 @@
+<button>Pedir pizza</button><br />
+<select class="Pizza">
+  <option value="6">Margarita</option>
+  <option value="7">Vegetal</optionvalue>
+  <option value="8">Carbonara</option>
+  <option value="9">Barbacoa</optionvalue>
+</select>
+<label>Tamaño</label> <br />
+<input type="radio" name="rBtn" class="radiusBtn" value="tamano1" checked/><label
+  >Pequeña</label
+><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="tamano2" /><label
+  >Mediana</label
+><br />
+<input type="radio" name="rBtn" class="radiusBtn" value="tamano3" /><label
+  >Grande</label
+><br />
+<label>Codigo promocional</label><br />
+<input type="text" class="input" />
+<label>Entraga a domicilio</label>
+<input type="checkbox" class="domicilio" /><br />
+<output></output>
+
+<script>
+function precioFinal(){
+const tipo = +document.querySelector(".Pizza").value;
+const tamano = document.querySelector("[name=rBtn]:checked").value;
+const cPromo = document.querySelector(".input").value;
+const domi = document.querySelector(".domicilio").checked;
+let precioPizza = tipo
+
+    if ((tamano == "tamano1")) {
+      precioPizza = precioPizza - 2;
+    } else if ((tamano == "tamano2")) {
+      precioPizza = precioPizza;
+    } else if ((tamano == "tamano3")) {
+      precioPizza = precioPizza + 2;
+    }
+
+    if (cPromo === "esfamiao") {
+      precioPizza = precioPizza * 0.6;
+    } 
+    if (domi === true) {
+      precioPizza = precioPizza + 4;
+    }
+  document.querySelector("output").value = precioPizza
+
+}
+
+document.querySelector("button").addEventListener("click", precioFinal);
+</script>

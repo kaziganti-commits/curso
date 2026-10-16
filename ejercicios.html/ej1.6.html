@@ -1,0 +1,35 @@
+<label for "">Primer número  </label> 
+<input type="text" class="input1" /> <br />
+<label for "">Segundo número  </label> 
+<input type="text" class="input2" /> <br />
+<label for "">Operación </label> 
+ <select>
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option> <br />
+  </select>
+  <button>Calcular </button> <br />
+  <label for "">Resultado: </label>
+  <output></output>
+
+  <script>
+function calcularResultado(){
+  const n1 = +document.querySelector(".input1").value;
+  const n2 = +document.querySelector(".input2").value;
+  const op = document.querySelector("select").value;
+
+  let resultado;
+  if (op == "+") {
+    resultado = n1 + n2;
+  } else if (op == "-") {
+    resultado = n1 - n2
+  } else if (op == "*") {
+    resultado = n1 * n2
+  } else if (op == "/") {
+    resultado = n1 / n2
+  }  
+  document.querySelector("output").value = resultado
+}
+document.querySelector("button").addEventListener("click", calcularResultado);
+  </script>

@@ -1,0 +1,19 @@
+<div><label for ""><input type="radio" name="option1"/>txt1  txt1</label></div><br />
+<div><label for ""><input type="radio" name="option1"/>txt2  txt2</label></div><br />
+<div><label for ""><input type="radio" name="option1"/>txt3  txt3</label></div><br />
+
+<script>
+const cambiarColor = document.querySelectorAll("div") 
+  cambiarColor.forEach ((cc) => {
+    cc.addEventListener("click", () => {
+      cambiarColor.forEach ((cc) => {
+        cc.style.background = "white"
+      })
+      cc.style.background = "blue"
+      const radio = cc.querySelector('input')
+      radio.checked = true;
+      //cc.querySelector("input[type=radio]:checked")
+    })
+ } )
+
+</script>

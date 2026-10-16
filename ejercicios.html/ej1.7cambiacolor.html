@@ -1,0 +1,16 @@
+<div
+  id="amarillo"
+  style="background-color: yellow; width: 200px; height: 200px"
+></div>
+<div id="rojo" style="background-color: red; width: 200px; height: 200px"></div>
+
+<script>
+  function cambiaColor() {
+    alert("al fin");
+    document.querySelector("#rojo").innerHTML =
+      "Has hecho mouse over sobre el amarillo";
+  }
+  document
+    .querySelector("#amarillo")
+    .addEventListener("mouseover", cambiaColor);
+</script>

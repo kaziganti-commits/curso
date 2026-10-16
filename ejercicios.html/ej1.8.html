@@ -1,0 +1,18 @@
+<input type="number" class="input" /> <br />
+<div class="numero"></div>
+<output></output>
+
+<script>
+  function anadeLineas() {
+    const x = document.querySelector("input").value;
+
+    console.log("2s");
+    let codigo = "";
+
+    for (let i = 0; i < x; i = i + 1) {
+      codigo = codigo + "cositas guays <br/>";
+    }
+    document.querySelector("output").innerHTML = codigo;
+  }
+  document.addEventListener("input", anadeLineas);
+</script>

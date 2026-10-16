@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+<style>
+  body{
+    background: url(https://img.magnific.com/fotos-premium/entra-pasado-mientras-gran-biblioteca-su-arquitectura-gotica-sus-antiguos-pergaminos-te-lleva-viaje-traves-siglos-conocimiento-sabiduria_908344-29816.jpg?semt=ais_hybrid&w=740&q=80); 
+    background-size: cover;
+    font-family: "MedievalSharp", cursive;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  .container{
+    max-width: 1200px;
+    background-color: rgba(255,255,255,0.6);
+    margin: auto;
+  }
+output{
+  color:rgb(8, 8, 97)
+}
+</style>
+
+</head>
+<body>
+  
+<div class="container">
+<label style="font-style: MedievalSharp">Título</label>
+<input type="text" name="titulo" />
+<label>Autor</label>
+<input type="text" name="autor" />
+<label>Género</label>
+<input type="text" name="genero" />
+<label>Páginas</label>
+<input type="number" name="paginas" /> 
+<label>¿Leído?</label>
+<input type="radio" name="leido">Sí</input>
+<input type="radio" name="leido">No</input>
+<button name="anadir">Añadir</button>
+<button name="buscar">Buscar</button><br />
+<label>Datos del libro buscado: </label><output></output>
+<div id="libros"></div>
+</div>
+<script>
+  const libros = [
+    {
+    titulo: "El nombre del viento",
+    autor: "Patrick Rothfuss",
+    genero: "Fantasía",
+    paginas: 900,
+    Leído: "Si",
+  } ,{
+    titulo: "Mecanoscrit del segon origen",
+    autor: "Manuel de Pedrolo",
+    genero: "Fantasía",
+    paginas: 300,
+    Leído: "Si",
+  }, {
+    titulo: "El día de la trilla",
+    autor: "Rebecca Yarros",
+    genero: "Fantasía",
+    paginas: 850,
+    Leído: "No",
+  } ]
+
+  function buscarlibro () {
+  const busquedatitulo = libros.find(libro => libro.titulo === document.querySelector("[name=titulo]").value)
+  document.querySelector("output").innerHTML=busquedatitulo.titulo + "- "+ busquedatitulo.autor + "- "+ busquedatitulo.genero + "- "+ busquedatitulo.paginas + "páginas"
+  }
+document.querySelector("[name=buscar]").addEventListener("click", buscarlibro)  
+  function buscarAutor () {
+  const busquedaAutor = libros.find(libro => libro.autor === document.querySelector("[name=autor]").value)
+  document.querySelector("output").innerHTML=busquedaAutor.titulo + "- "+ busquedaAutor.autor + "- "+ busquedaAutor.genero + "- "+ busquedaAutor.paginas + "páginas"
+  }
+//document.querySelector("[name=buscar]").addEventListener("click", buscarAutor)
+  function buscarGenero () {
+  const busquedaGenero = libros.filter(libro => libro.genero === document.querySelector("[name=genero]").value)
+  let code = "";
+     busquedaGenero.forEach (libro =>{
+code += "<p>"+libro.titulo + "- "+ libro.autor + "- "+ libro.genero + "- "+ libro.paginas + "páginas</p>";
+     })
+  document.querySelector("output").innerHTML = code
+  }
+//document.querySelector("[name=buscar]").addEventListener("click", buscarGenero)
+</script>
+
+</body>
+</html>
+
